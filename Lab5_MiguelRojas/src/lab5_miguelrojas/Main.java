@@ -1,6 +1,7 @@
 package lab5_miguelrojas;
 
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -65,7 +66,7 @@ public class Main extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         rb_superheroe = new javax.swing.JRadioButton();
         rb_villanos = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        jb_crearEscuadron = new javax.swing.JButton();
         tf_nombreEscuadron = new javax.swing.JTextField();
         tf_lugarEscuadron = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
@@ -400,10 +401,10 @@ public class Main extends javax.swing.JFrame {
         bg_tipoEscuadron.add(rb_villanos);
         rb_villanos.setText("Villanos");
 
-        jButton1.setText("Crear Escuadron");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jb_crearEscuadron.setText("Crear Escuadron");
+        jb_crearEscuadron.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                jb_crearEscuadronMouseClicked(evt);
             }
         });
 
@@ -432,7 +433,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(215, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jb_crearEscuadron)
                 .addGap(47, 47, 47))
         );
         jPanel4Layout.setVerticalGroup(
@@ -455,7 +456,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(rb_superheroe)
                         .addComponent(rb_villanos)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jb_crearEscuadron, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
 
@@ -1013,33 +1014,27 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
+                            .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
-                        .addGap(27, 27, 27))
+                                    .addComponent(jLabel10)
+                                    .addComponent(jb_menuVillano))
+                                .addGap(99, 99, 99)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jb_menuEscuadron)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jb_menuHeroe, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jb_menuHeroe, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jb_menuVillano)
-                                .addGap(95, 95, 95)
-                                .addComponent(jb_menuEscuadron))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(153, 153, 153))))
+                        .addGap(68, 68, 68)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(271, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1298,7 +1293,7 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jb_menuEscuadronMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void jb_crearEscuadronMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearEscuadronMouseClicked
         String nombre_escuadron = null, lugar_escuadron = null, tipo_escuadron = null;
         boolean crear = true;
         //Validar entrada de datos
@@ -1338,8 +1333,10 @@ public class Main extends javax.swing.JFrame {
                 DefaultTreeModel model = (DefaultTreeModel) jt_arbolEscuadrones.getModel();
                 //Crear Raiz
                 DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) model.getRoot();
-                DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(tipo_escuadron);
+                DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(e);
 
+                raiz.add(nodo);
+                model.reload();
                 //
                 JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se creo exitosamente el escuadron.");
                 tf_nombreEscuadron.setText("");
@@ -1351,18 +1348,16 @@ public class Main extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(jd_menuEscuadrones, "Ocurrio un error en el sistema.");
             }
         }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_jb_crearEscuadronMouseClicked
 
     private void jb_eliminarEscuadronMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_eliminarEscuadronMouseClicked
         int pos_elim = jl_listaEscuadrones.getSelectedIndex();
-
         if (pos_elim >= 0) {
             int resp = JOptionPane.showConfirmDialog(jd_menuEscuadrones, "¿Seguro?", "Eliminar Escuadron", JOptionPane.YES_NO_OPTION);
 
             if (resp == 0) {
                 //Eliminar miembros primero
                 Escuadron e_elim = lista_escuadrones.get(pos_elim);
-
                 for (int i = 0; i < e_elim.getLista_miembros().size(); i++) {
                     if (e_elim.getMiembro(i) instanceof Superheroe) {
                         lista_heroes.remove(e_elim.getMiembro(i));
@@ -1478,8 +1473,17 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "No puede agregar al mismo miembro");
                     add_miembro = false;
                 }
+                
+                if (heroe_elegido.isSelecciondado_escuadron() == true) {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "Este super heroe ya esta en otro escuadron");
+                    add_miembro = false;
+                }
                 if (add_miembro) {
                     esc.setMiembro(heroe_elegido);
+                    heroe_elegido.setSelecciondado_escuadron(true);
+                    //Agregar al arbol
+                    
+                    //DefaultTreeModel
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se agrego el miembro exitosamente!!");
                 }
 
@@ -1501,8 +1505,15 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "No puede agregar al mismo miembro");
                     add_miembro2 = false;
                 }
+                
+                if (v_elegido.isSelecciondado_escuadron() == true) {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "El villano ya es parte de otro escuadron");
+                    add_miembro2 = false;
+                }
+                
                 if (add_miembro2) {
                     esc.setMiembro(v_elegido);
+                    v_elegido.setSelecciondado_escuadron(true);
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se agrego el miembro exitosamente!!");
                 }
 
@@ -1665,8 +1676,99 @@ public class Main extends javax.swing.JFrame {
             seguir = false;
         }
 
+        if (esc_1.getLider() == null) {
+            JOptionPane.showMessageDialog(jd_menuEscuadrones, "El Escuadron seleccionado no tiene lider");
+            seguir = false;
+        }
+
+        if (esc_2.getLider() == null) {
+            JOptionPane.showMessageDialog(jd_menuEscuadrones, "El Escuadron seleccionado no tiene lider");
+            seguir = false;
+        }
+
         if (seguir) {
             //Hacer Simulacion
+            Random r = new Random();
+            int opcion = r.nextInt(2) + 0;
+
+            String duelo = "";
+            String caracteristica_l1 = "";
+            String caracteristica_l2 = "";
+            Super lider_1 = esc_1.getLider();
+            Super lider_2 = esc_2.getLider();
+            if (opcion == 0) {
+                duelo = "Duelo de Fuerza";
+                caracteristica_l1 = Integer.toString(lider_1.getFuerza());
+                caracteristica_l2 = Integer.toString(lider_2.getFuerza());
+                JOptionPane.showMessageDialog(jd_menuEscuadrones, duelo
+                        + "\nLider 1: " + lider_1.getNombre() + ", Fuerza: " + caracteristica_l1 + "\n"
+                        + "Lider 2: " + lider_2.getNombre() + "Fuerza: " + caracteristica_l2);
+
+                if (lider_1.getFuerza() > lider_2.getFuerza()) {
+
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "El  Ganador es: " + lider_1.getNombre() + "!!!!!\n"
+                            + "El Escuadron 2 sera eliminado");
+                    lista_escuadrones.remove(pos_esc2);
+                    
+                } else if (lider_1.getFuerza() == lider_2.getFuerza()) {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "El Combate Resulto en Empate!!!\n"
+                            + "Lider 1: " + lider_1.getNombre() + ", Fuerza: " + caracteristica_l1 + "\n"
+                            + "Lider 2: " + lider_2.getNombre() + "Fuerza: " + caracteristica_l2);
+
+                } else {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "El  Ganador es: " + lider_2.getNombre() + "!!!!!\n"
+                            + "El Escuadron 1 sera eliminado");
+                    lista_escuadrones.remove(pos_esc1);
+                }
+                
+                
+            } else if (opcion == 1) {
+                duelo = "Duelo de Habilidad Física";
+                caracteristica_l1 = Integer.toString(lider_1.getAgilidad_fisica());
+                caracteristica_l2 = Integer.toString(lider_2.getAgilidad_fisica());
+                JOptionPane.showMessageDialog(jd_menuEscuadrones, duelo
+                        + "\nLider 1: " + lider_1.getNombre() + ", Agilidad Fisica: " + caracteristica_l1 + "\n"
+                        + "Lider 2: " + lider_2.getNombre() + "Agilidad Fisica: " + caracteristica_l2);
+                
+                
+                if (lider_1.getAgilidad_fisica() > lider_2.getAgilidad_fisica()) {
+                    
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "El  Ganador es: " + lider_1.getNombre() + "!!!!!\n"
+                            + "El Escuadron 2 sera eliminado");
+                    lista_escuadrones.remove(pos_esc2);
+                } else if (lider_1.getAgilidad_fisica() == lider_2.getAgilidad_fisica()) {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "El Combate Resulto en Empate!!!\n"
+                            + "Lider 1: " + lider_1.getNombre() + ", Agilidad Fisica: " + caracteristica_l1 + "\n"
+                            + "Lider 2: " + lider_2.getNombre() + "Agilidad Fisica: " + caracteristica_l2);
+                } else {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "El  Ganador es: " + lider_2.getNombre() + "!!!!!\n"
+                            + "El Escuadron 1 sera eliminado");
+                    lista_escuadrones.remove(pos_esc1);
+                }
+
+            } else {
+                duelo = "Duelo de Habilidad Mental";
+                caracteristica_l1 = Integer.toString(lider_1.getAgilidad_mental());
+                caracteristica_l2 = Integer.toString(lider_2.getAgilidad_mental());
+                JOptionPane.showMessageDialog(jd_menuEscuadrones, duelo
+                        + "\nLider 1: " + lider_1.getNombre() + ", Agilidad Mental: " + caracteristica_l1 + "\n"
+                        + "Lider 2: " + lider_2.getNombre() + "Agilidad Mental: " + caracteristica_l2);
+                
+                if (lider_1.getAgilidad_mental() > lider_2.getAgilidad_mental()) {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "El  Ganador es: " + lider_1.getNombre() + "!!!!!\n"
+                            + "El Escuadron 2 sera eliminado");
+                    lista_escuadrones.remove(pos_esc2);
+                    
+                } else if (lider_1.getAgilidad_mental() == lider_2.getAgilidad_mental()) {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "El Combate Resulto en Empate!!!\n"
+                            + "Lider 1: " + lider_1.getNombre() + ", Agilidad Mental: " + caracteristica_l1 + "\n"
+                            + "Lider 2: " + lider_2.getNombre() + "Agilidad Mental: " + caracteristica_l2);
+                } else {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "El  Ganador es: " + lider_2.getNombre() + "!!!!!\n"
+                            + "El Escuadron 1 sera eliminado");
+                    lista_escuadrones.remove(pos_esc1);
+                }
+            }
 
         }
     }//GEN-LAST:event_jb_simulacionMouseClicked
@@ -1674,7 +1776,7 @@ public class Main extends javax.swing.JFrame {
     private void jb_elegirEscuadron1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_elegirEscuadron1MouseClicked
 
         int op_lista = jl_listaescuadrones3.getSelectedIndex();
-        op_lista1 =  jl_listaescuadrones3.getSelectedIndex();
+        pos_esc1 = jl_listaescuadrones3.getSelectedIndex();
         if (op_lista >= 0) {
             esc_1 = lista_escuadrones.get(op_lista);
             JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se eligio un escuadron exitosamente!!");
@@ -1685,9 +1787,9 @@ public class Main extends javax.swing.JFrame {
 
     private void jb_elegirEscuadron2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_elegirEscuadron2MouseClicked
         int op_2 = jl_listaescuadrones3.getSelectedIndex();
-        
-        if (op_2 == op_lista1 ) {
-            JOptionPane.showMessageDialog(jd_menuEscuadrones,"No puede elegir al mismo escuadron");
+
+        if (op_2 == pos_esc1) {
+            JOptionPane.showMessageDialog(jd_menuEscuadrones, "No puede elegir al mismo escuadron");
         } else {
             if (op_2 >= 0) {
                 esc_2 = lista_escuadrones.get(op_2);
@@ -1696,7 +1798,7 @@ public class Main extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(jd_menuEscuadrones, "Eliga un escuadron");
             }
         }
-        
+
 
     }//GEN-LAST:event_jb_elegirEscuadron2MouseClicked
 
@@ -1735,7 +1837,6 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bg_tipoEscuadron;
     private javax.swing.ButtonGroup bg_tipoEscuadronMod;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1795,6 +1896,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JButton jb_agregarMiembro;
+    private javax.swing.JButton jb_crearEscuadron;
     private javax.swing.JButton jb_crearHeroe;
     private javax.swing.JButton jb_crearVillano;
     private javax.swing.JButton jb_elegirEscuadron1;
@@ -1866,8 +1968,8 @@ public class Main extends javax.swing.JFrame {
     Escuadron esc_1 = null;
     Escuadron esc_2 = null;
 
-    int op_lista1;
-    int op_lista2;
+    int pos_esc1;
+    int pos_esc2;
 
     public void refrescarListaHeroes() {
         DefaultListModel model = new DefaultListModel();
@@ -1891,7 +1993,7 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel model = new DefaultListModel();
 
         for (Escuadron e : lista_escuadrones) {
-            model.addElement(e.getNombre_escuadron() + "," + e.getLugar_base());
+            model.addElement(e.getNombre_escuadron() + ", " + e.getLugar_base());
         }
 
         jl_listaEscuadrones.setModel(model);

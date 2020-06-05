@@ -9,8 +9,8 @@ public class Super {
     private int fuerza;
     private int agilidad_fisica;
     private int agilidad_mental;
-    private boolean selecciondado_escuadron = false;
-    
+    private boolean seleccionado_escuadron = false;
+   
     public Super(){
         
     }
@@ -81,11 +81,11 @@ public class Super {
     }
 
     public boolean isSelecciondado_escuadron() {
-        return selecciondado_escuadron;
+        return seleccionado_escuadron;
     }
 
     public void setSelecciondado_escuadron(boolean selecciondado_escuadron) {
-        this.selecciondado_escuadron = selecciondado_escuadron;
+        this.seleccionado_escuadron = selecciondado_escuadron;
     }
     
     

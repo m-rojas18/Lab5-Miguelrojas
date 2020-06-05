@@ -70,7 +70,8 @@ public class Escuadron {
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre_escuadron + ", Localidad: " + lugar_base;
+        return nombre_escuadron;
     }
+    
 
 }
