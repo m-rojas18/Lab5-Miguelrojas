@@ -132,7 +132,7 @@ public class Main extends javax.swing.JFrame {
         jLabel42 = new javax.swing.JLabel();
         popup_menu = new javax.swing.JPopupMenu();
         jmi_lider = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jmi_verDatos = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jb_menuHeroe = new javax.swing.JButton();
@@ -930,7 +930,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
-        jmi_lider.setText("jMenuItem1");
+        jmi_lider.setText("Convertir  Lider");
         jmi_lider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmi_liderActionPerformed(evt);
@@ -938,8 +938,13 @@ public class Main extends javax.swing.JFrame {
         });
         popup_menu.add(jmi_lider);
 
-        jMenuItem2.setText("jMenuItem2");
-        popup_menu.add(jMenuItem2);
+        jmi_verDatos.setText("Ver datos");
+        jmi_verDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_verDatosActionPerformed(evt);
+            }
+        });
+        popup_menu.add(jmi_verDatos);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1849,6 +1854,7 @@ public class Main extends javax.swing.JFrame {
             int row = jt_arbolEscuadrones.getClosestRowForLocation(
                     evt.getX(), evt.getY());
             jt_arbolEscuadrones.setSelectionRow(row);
+            pos_nodo = row;
             Object v1
                     = jt_arbolEscuadrones.getSelectionPath().
                             getLastPathComponent();
@@ -1874,9 +1880,16 @@ public class Main extends javax.swing.JFrame {
 
     private void jmi_liderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_liderActionPerformed
         
-        Escuadron escuadron;
+        Escuadron escuadron = lista_escuadrones.get(pos_nodo);
+        
+        escuadron.setLider(super_seleccionado);
+        JOptionPane.showMessageDialog(this,"El Super seleccionado ahora es el lider.");
         
     }//GEN-LAST:event_jmi_liderActionPerformed
+
+    private void jmi_verDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_verDatosActionPerformed
+       
+    }//GEN-LAST:event_jmi_verDatosActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1956,7 +1969,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -2001,6 +2013,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> jl_listaVillanos;
     private javax.swing.JList<String> jl_listaescuadrones3;
     private javax.swing.JMenuItem jmi_lider;
+    private javax.swing.JMenuItem jmi_verDatos;
     private javax.swing.JSpinner js_agilidadFisicaHeroe;
     private javax.swing.JSpinner js_agilidadFisicaHeroeMod;
     private javax.swing.JSpinner js_agilidadFisicaVillano;
@@ -2051,6 +2064,7 @@ public class Main extends javax.swing.JFrame {
     Super super_seleccionado;
     int pos_esc1;
     int pos_esc2;
+    int pos_nodo;
 
     public void refrescarListaHeroes() {
         DefaultListModel model = new DefaultListModel();
