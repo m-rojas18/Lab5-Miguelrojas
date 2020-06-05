@@ -6,18 +6,17 @@ public class Escuadron {
 
     private String nombre_escuadron;
     private String lugar_base;
-    private String lider;
+    private Super lider = null;
     private String tipo_escuadron;
-    private ArrayList lista_miembros = new ArrayList();
-    
-    public Escuadron(){
-        
+    private ArrayList<Super> lista_miembros = new ArrayList();
+
+    public Escuadron() {
+
     }
 
-    public Escuadron(String nombre_escuadron, String lugar_base, String lider, String tipo_escuadron) {
+    public Escuadron(String nombre_escuadron, String lugar_base, String tipo_escuadron) {
         this.nombre_escuadron = nombre_escuadron;
         this.lugar_base = lugar_base;
-        this.lider = lider;
         this.tipo_escuadron = tipo_escuadron;
     }
 
@@ -37,11 +36,11 @@ public class Escuadron {
         this.lugar_base = lugar_base;
     }
 
-    public String getLider() {
+    public Super getLider() {
         return lider;
     }
 
-    public void setLider(String lider) {
+    public void setLider(Super lider) {
         this.lider = lider;
     }
 
@@ -53,18 +52,21 @@ public class Escuadron {
         this.tipo_escuadron = tipo_escuadron;
     }
 
-    public ArrayList getLista_miembros() {
+    public Super getMiembro(int pos) {
+        return lista_miembros.get(pos);
+    }
+
+    public ArrayList<Super> getLista_miembros() {
         return lista_miembros;
     }
 
-    public void setLista_miembros(ArrayList lista_miembros) {
+    public void setLista_miembros(ArrayList<Super> lista_miembros) {
         this.lista_miembros = lista_miembros;
     }
 
     @Override
     public String toString() {
-        return "Escuadron{" + "nombre_escuadron=" + nombre_escuadron + ", lugar_base=" + lugar_base + ", lider=" + lider + ", tipo_escuadron=" + tipo_escuadron + ", lista_miembros=" + lista_miembros + '}';
+        return "Nombre: " + nombre_escuadron + ", Localidad: " + lugar_base;
     }
-    
-    
+
 }

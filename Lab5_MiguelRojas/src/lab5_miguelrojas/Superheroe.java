@@ -11,7 +11,7 @@ public class Superheroe  extends Super{
 
     @Override
     public String toString() {
-        return "Nombre: " + super.getNombre() + ", Poder: " + super.getPoder();
+        return super.getNombre() + ", " +super.getPoder();
     }
   
 }

@@ -11,7 +11,7 @@ public class Villano extends Super{
 
     @Override
     public String toString() {
-        return "Nombre: " + super.getNombre() + ", Debilidad: " + super.getDebilidad();
+        return super.getNombre() + "," + super.getDebilidad();
     }
     
     
