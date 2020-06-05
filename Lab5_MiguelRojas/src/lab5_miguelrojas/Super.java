@@ -5,7 +5,7 @@ public class Super {
     private String nombre;
     private String poder;
     private String debilidad;
-    private Escuadron escuadron;
+    private Escuadron escuadron = null;
     private int fuerza;
     private int agilidad_fisica;
     private int agilidad_mental;
@@ -14,11 +14,10 @@ public class Super {
         
     }
 
-    public Super(String nombre, String poder, String debilidad, Escuadron escuadron, int fuerza, int agilidad_fisica, int agilidad_mental) {
+    public Super(String nombre, String poder, String debilidad, int fuerza, int agilidad_fisica, int agilidad_mental) {
         this.nombre = nombre;
         this.poder = poder;
         this.debilidad = debilidad;
-        this.escuadron = escuadron;
         this.fuerza = fuerza;
         this.agilidad_fisica = agilidad_fisica;
         this.agilidad_mental = agilidad_mental;
