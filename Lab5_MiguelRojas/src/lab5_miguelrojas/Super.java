@@ -9,6 +9,7 @@ public class Super {
     private int fuerza;
     private int agilidad_fisica;
     private int agilidad_mental;
+    private boolean selecciondado_escuadron = false;
     
     public Super(){
         
@@ -78,6 +79,16 @@ public class Super {
     public void setAgilidad_mental(int agilidad_mental) {
         this.agilidad_mental = agilidad_mental;
     }
+
+    public boolean isSelecciondado_escuadron() {
+        return selecciondado_escuadron;
+    }
+
+    public void setSelecciondado_escuadron(boolean selecciondado_escuadron) {
+        this.selecciondado_escuadron = selecciondado_escuadron;
+    }
+    
+    
 
     @Override
     public String toString() {
