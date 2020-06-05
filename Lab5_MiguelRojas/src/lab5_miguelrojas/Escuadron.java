@@ -59,6 +59,10 @@ public class Escuadron {
     public ArrayList<Super> getLista_miembros() {
         return lista_miembros;
     }
+    
+    public void setMiembro(Super miembro){
+        this.lista_miembros.add(miembro);
+    }
 
     public void setLista_miembros(ArrayList<Super> lista_miembros) {
         this.lista_miembros = lista_miembros;

@@ -73,12 +73,11 @@ public class Main extends javax.swing.JFrame {
         jb_modificarEscuadron = new javax.swing.JButton();
         jb_eliminarEscuadron = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        cb_heroes = new javax.swing.JComboBox<>();
-        cb_villanos = new javax.swing.JComboBox<>();
+        jb_elegirLider = new javax.swing.JButton();
+        jb_agregarMiembro = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jl_listaEscuadrones2 = new javax.swing.JList<>();
         jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         bg_tipoEscuadron = new javax.swing.ButtonGroup();
         jd_modEscuadron = new javax.swing.JDialog();
         jLabel24 = new javax.swing.JLabel();
@@ -477,58 +476,55 @@ public class Main extends javax.swing.JFrame {
 
         jtp_menuEscuadron.addTab("Modificar/Eliminar Escuadron", jPanel5);
 
-        cb_heroes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
+        jb_elegirLider.setText("Elegir Lider");
+        jb_elegirLider.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_elegirLiderMouseClicked(evt);
+            }
+        });
 
-        cb_villanos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
+        jb_agregarMiembro.setText("Agregar Miembro");
+        jb_agregarMiembro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agregarMiembroMouseClicked(evt);
+            }
+        });
 
-        jLabel28.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel28.setText("Lista de Heroes");
+        jScrollPane5.setViewportView(jl_listaEscuadrones2);
 
-        jLabel29.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel29.setText("Lista de Villanos");
-
-        jButton2.setText("Elegir Lider");
-
-        jButton3.setText("Agregar Miembro");
+        jLabel28.setText("Lista de Escuadrones");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28)
-                            .addComponent(cb_heroes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(84, 84, 84)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_villanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel29)))
+                        .addComponent(jLabel28)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jButton2)
-                        .addGap(114, 114, 114)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(195, Short.MAX_VALUE))
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jb_agregarMiembro, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jb_elegirLider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(116, 116, 116))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(jLabel29))
+                .addGap(36, 36, 36)
+                .addComponent(jLabel28)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_heroes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_villanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane5)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jb_elegirLider, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)
+                        .addComponent(jb_agregarMiembro, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         jtp_menuEscuadron.addTab("Agregar Miembros", jPanel6);
@@ -841,7 +837,6 @@ public class Main extends javax.swing.JFrame {
                 lista_heroes.add(heroe);
                 //Agregar a lista
                 refrescarListaHeroes();
-                refrescarCBHeroes();
 
                 JOptionPane.showMessageDialog(jd_crearHeroe, "Se creo exitosamente el heroe.");
                 tf_nombreHeroe.setText("");
@@ -1109,7 +1104,7 @@ public class Main extends javax.swing.JFrame {
             e_mod.setLugar_base(tf_lugarEscuadronMod.getText());
             if (rb_superheroeMod.isSelected()) {
                 e_mod.setTipo_escuadron("Superheroes");
-            } else{
+            } else {
                 e_mod.setTipo_escuadron("Villanos");
             }
         }
@@ -1117,7 +1112,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_modEscuadronMouseClicked
 
     private void jtp_menuEscuadronStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jtp_menuEscuadronStateChanged
-        
+
         if (jtp_menuEscuadron.getSelectedIndex() == 2) {
             if (lista_escuadrones.isEmpty()) {
                 JOptionPane.showMessageDialog(jd_menuEscuadrones, "Debe crear minimo 1 escuadron para acceder a esta funcion.");
@@ -1125,6 +1120,110 @@ public class Main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jtp_menuEscuadronStateChanged
+
+    private void jb_elegirLiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_elegirLiderMouseClicked
+
+        String salida_heroes = salidaHeroes(), salida_villanos = salidaVillanos();
+        if (jl_listaEscuadrones2.getSelectedIndex() >= 0) {
+            Escuadron esc = lista_escuadrones.get(jl_listaEscuadrones2.getSelectedIndex());
+
+            if (esc.getLider() == null) {
+                JOptionPane.showMessageDialog(jd_menuEscuadrones, "El escuadron ya tiene un lider");
+            } else {
+                if (esc.getTipo_escuadron().equals("Superheroes")) {
+                    //Mostrar salida de heroes
+                    int op_liderH = Integer.parseInt(JOptionPane.showInputDialog(jd_menuEscuadrones, "Lista de Heroes\n"
+                            + salida_heroes + "Seleccione heroe a hacer lider: "));
+
+                    esc.setLider(lista_heroes.get(op_liderH));
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se eligio al lider del escuadron exitosamente!!");
+                } else {
+                    //Mostar salida de villanos
+                    //Mostrar Opciones
+                    int op_liderV = Integer.parseInt(JOptionPane.showInputDialog(jd_menuEscuadrones, "Lista de Villanos\n"
+                            + salida_villanos + "Seleccione villano a hacer lider: "));
+                    //Set Lider
+                    esc.setLider(lista_villanos.get(op_liderV));
+
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se eligio al lider del escuadron exitosamente!!");
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(jd_menuEscuadrones, "Debe elegir un escuadron.");
+        }
+    }//GEN-LAST:event_jb_elegirLiderMouseClicked
+
+    private void jb_agregarMiembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarMiembroMouseClicked
+
+        String salida_heroes = salidaHeroes(), salida_villanos = salidaVillanos();
+        if (jl_listaEscuadrones2.getSelectedIndex() >= 0) {
+            Escuadron esc = lista_escuadrones.get(jl_listaEscuadrones2.getSelectedIndex());
+            //Mostrar heroes o villanos dependiendo del tipo de Escuadron
+            if (esc.getTipo_escuadron().equals("Superheroes")) {
+                //Agregar Heroe
+                int op_miembroAdd = Integer.parseInt(JOptionPane.showInputDialog(jd_menuEscuadrones, "Lista de Superhereos\n"
+                        + salida_heroes + "Eliga heroe a agregar: "));
+
+                Superheroe heroe_elegido = lista_heroes.get(op_miembroAdd);
+
+                boolean verificar_miembro = true;
+                boolean add_miembro = true;
+                for (int i = 0; i < esc.getLista_miembros().size(); i++) {
+                    if (esc.getLista_miembros().contains(heroe_elegido)) {
+                        verificar_miembro = false;
+                        break;
+                    }
+                }
+
+                if (verificar_miembro == false) {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "No puede agregar al mismo miembro");
+                    add_miembro = false;
+                }
+                //Comparar si el miembro es igual al lider
+                if (esc.getLider() == heroe_elegido) {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "No puede agregar al lider 2 veces");
+                    add_miembro = false;
+                }
+                if (add_miembro) {
+                    esc.setMiembro(heroe_elegido);
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se agrego el miembro exitosamente!!");
+                }
+
+            } else {
+                //Agregar Villano
+                int op_miembroAdd2 = Integer.parseInt(JOptionPane.showInputDialog(jd_menuEscuadrones, "Lista de Villanos\n"
+                        + salida_villanos + "Eliga villano a agregar: "));
+                Villano v_elegido = lista_villanos.get(op_miembroAdd2);
+                boolean add_miembro2 = true;
+                boolean verificar_miembro2 = true;
+                for (int i = 0; i < esc.getLista_miembros().size(); i++) {
+                    if (esc.getLista_miembros().contains(v_elegido)) {
+                        verificar_miembro2 = false;
+                        break;
+                    }
+                }
+
+                if (verificar_miembro2 == false) {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "No puede agregar al mismo miembro");
+                    add_miembro2 = false;
+                }
+                //Comparar si el miembro es igual al lider
+                if (esc.getLider() == v_elegido) {
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "No puede agregar al lider 2 veces");
+                    add_miembro2 = false;
+                }
+
+                if (add_miembro2) {
+                    esc.setMiembro(v_elegido);
+                    JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se agrego el miembro exitosamente!!");
+                }
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(jd_menuEscuadrones, "Debe elegir un escuadron.");
+        }
+    }//GEN-LAST:event_jb_agregarMiembroMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1161,11 +1260,7 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bg_tipoEscuadron;
     private javax.swing.ButtonGroup bg_tipoEscuadronMod;
-    private javax.swing.JComboBox<String> cb_heroes;
-    private javax.swing.JComboBox<String> cb_villanos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
@@ -1189,7 +1284,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1207,9 +1301,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTree jTree1;
+    private javax.swing.JButton jb_agregarMiembro;
     private javax.swing.JButton jb_crearHeroe;
     private javax.swing.JButton jb_crearVillano;
+    private javax.swing.JButton jb_elegirLider;
     private javax.swing.JButton jb_eliminarEscuadron;
     private javax.swing.JButton jb_menuEscuadron;
     private javax.swing.JButton jb_menuHeroe;
@@ -1222,6 +1319,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog jd_menuEscuadrones;
     private javax.swing.JDialog jd_modEscuadron;
     private javax.swing.JList<String> jl_listaEscuadrones;
+    private javax.swing.JList<String> jl_listaEscuadrones2;
     private javax.swing.JList<String> jl_listaHeroes;
     private javax.swing.JList<String> jl_listaVillanos;
     private javax.swing.JSpinner js_agilidadFisicaHeroe;
@@ -1279,16 +1377,31 @@ public class Main extends javax.swing.JFrame {
         }
 
         jl_listaEscuadrones.setModel(model);
+        jl_listaEscuadrones2.setModel(model);
     }
-    
-    public void refrescarCBHeroes(){
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        
-        modelo.addElement("-----");
-        for (Superheroe h : lista_heroes) {
-            modelo.addElement(h);
+
+    public String salidaHeroes() {
+        String salida_heroes = "";
+        for (int i = 0; i < lista_heroes.size(); i++) {
+            Superheroe s = lista_heroes.get(i);
+            salida_heroes += "[" + i + "] Nombre: " + s.getNombre() + ", Poder: " + s.getPoder()
+                    + ", Debilidad:" + s.getDebilidad() + ", Fuerza: " + s.getFuerza()
+                    + ", Agilidad Fisica: " + s.getAgilidad_fisica() + ", Agilidad Mental: " + s.getAgilidad_mental() + "\n";
         }
-        
-        cb_heroes.setModel(modelo);
+        return salida_heroes;
     }
+
+    public String salidaVillanos() {
+
+        String salida_villanos = "";
+        for (int i = 0; i < lista_villanos.size(); i++) {
+            Villano v = lista_villanos.get(i);
+            salida_villanos += "[" + i + "] Nombre: " + v.getNombre() + ", Poder: " + v.getPoder()
+                    + ", Debilidad:" + v.getDebilidad() + ", Fuerza: " + v.getFuerza()
+                    + ", Agilidad Fisica: " + v.getAgilidad_fisica() + ", Agilidad Mental: " + v.getAgilidad_mental() + "\n";
+        }
+
+        return salida_villanos;
+    }
+
 }
