@@ -130,6 +130,9 @@ public class Main extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
+        popup_menu = new javax.swing.JPopupMenu();
+        jmi_lider = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jb_menuHeroe = new javax.swing.JButton();
@@ -927,6 +930,17 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
+        jmi_lider.setText("jMenuItem1");
+        jmi_lider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_liderActionPerformed(evt);
+            }
+        });
+        popup_menu.add(jmi_lider);
+
+        jMenuItem2.setText("jMenuItem2");
+        popup_menu.add(jMenuItem2);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
@@ -968,6 +982,11 @@ public class Main extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Escuadrones");
         jt_arbolEscuadrones.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_arbolEscuadrones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_arbolEscuadronesMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jt_arbolEscuadrones);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1473,7 +1492,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "No puede agregar al mismo miembro");
                     add_miembro = false;
                 }
-                
+
                 if (heroe_elegido.isSelecciondado_escuadron() == true) {
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "Este super heroe ya esta en otro escuadron");
                     add_miembro = false;
@@ -1482,8 +1501,19 @@ public class Main extends javax.swing.JFrame {
                     esc.setMiembro(heroe_elegido);
                     heroe_elegido.setSelecciondado_escuadron(true);
                     //Agregar al arbol
-                    
-                    //DefaultTreeModel
+
+                    DefaultTreeModel m = (DefaultTreeModel) jt_arbolEscuadrones.getModel();
+                    DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+                    //raiz.getChildAt(jl_listaEscuadrones2.getSelectedIndex());
+                    DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) raiz.getChildAt(jl_listaEscuadrones2.getSelectedIndex());
+
+                    DefaultMutableTreeNode nodo_miembro = new DefaultMutableTreeNode(heroe_elegido);
+                    DefaultMutableTreeNode nodo_miembro2 = new DefaultMutableTreeNode(heroe_elegido.getPoder());
+
+                    nodo_miembro.add(nodo_miembro2);
+                    nodo.add(nodo_miembro);
+                    m.reload();
+
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se agrego el miembro exitosamente!!");
                 }
 
@@ -1505,16 +1535,28 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "No puede agregar al mismo miembro");
                     add_miembro2 = false;
                 }
-                
+
                 if (v_elegido.isSelecciondado_escuadron() == true) {
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "El villano ya es parte de otro escuadron");
                     add_miembro2 = false;
                 }
-                
+
                 if (add_miembro2) {
                     esc.setMiembro(v_elegido);
                     v_elegido.setSelecciondado_escuadron(true);
+                    DefaultTreeModel m = (DefaultTreeModel) jt_arbolEscuadrones.getModel();
+                    DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+                    //raiz.getChildAt(jl_listaEscuadrones2.getSelectedIndex());
+                    DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) raiz.getChildAt(jl_listaEscuadrones2.getSelectedIndex());
+
+                    DefaultMutableTreeNode nodo_miembro = new DefaultMutableTreeNode(v_elegido);
+                    DefaultMutableTreeNode nodo_miembro2 = new DefaultMutableTreeNode(v_elegido.getPoder());
+
+                    nodo_miembro.add(nodo_miembro2);
+                    nodo.add(nodo_miembro);
+                    m.reload();
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se agrego el miembro exitosamente!!");
+
                 }
 
             }
@@ -1709,7 +1751,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "El  Ganador es: " + lider_1.getNombre() + "!!!!!\n"
                             + "El Escuadron 2 sera eliminado");
                     lista_escuadrones.remove(pos_esc2);
-                    
+
                 } else if (lider_1.getFuerza() == lider_2.getFuerza()) {
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "El Combate Resulto en Empate!!!\n"
                             + "Lider 1: " + lider_1.getNombre() + ", Fuerza: " + caracteristica_l1 + "\n"
@@ -1720,8 +1762,7 @@ public class Main extends javax.swing.JFrame {
                             + "El Escuadron 1 sera eliminado");
                     lista_escuadrones.remove(pos_esc1);
                 }
-                
-                
+
             } else if (opcion == 1) {
                 duelo = "Duelo de Habilidad Física";
                 caracteristica_l1 = Integer.toString(lider_1.getAgilidad_fisica());
@@ -1729,10 +1770,9 @@ public class Main extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(jd_menuEscuadrones, duelo
                         + "\nLider 1: " + lider_1.getNombre() + ", Agilidad Fisica: " + caracteristica_l1 + "\n"
                         + "Lider 2: " + lider_2.getNombre() + "Agilidad Fisica: " + caracteristica_l2);
-                
-                
+
                 if (lider_1.getAgilidad_fisica() > lider_2.getAgilidad_fisica()) {
-                    
+
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "El  Ganador es: " + lider_1.getNombre() + "!!!!!\n"
                             + "El Escuadron 2 sera eliminado");
                     lista_escuadrones.remove(pos_esc2);
@@ -1753,12 +1793,12 @@ public class Main extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(jd_menuEscuadrones, duelo
                         + "\nLider 1: " + lider_1.getNombre() + ", Agilidad Mental: " + caracteristica_l1 + "\n"
                         + "Lider 2: " + lider_2.getNombre() + "Agilidad Mental: " + caracteristica_l2);
-                
+
                 if (lider_1.getAgilidad_mental() > lider_2.getAgilidad_mental()) {
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "El  Ganador es: " + lider_1.getNombre() + "!!!!!\n"
                             + "El Escuadron 2 sera eliminado");
                     lista_escuadrones.remove(pos_esc2);
-                    
+
                 } else if (lider_1.getAgilidad_mental() == lider_2.getAgilidad_mental()) {
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "El Combate Resulto en Empate!!!\n"
                             + "Lider 1: " + lider_1.getNombre() + ", Agilidad Mental: " + caracteristica_l1 + "\n"
@@ -1801,6 +1841,42 @@ public class Main extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jb_elegirEscuadron2MouseClicked
+
+    private void jt_arbolEscuadronesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_arbolEscuadronesMouseClicked
+        // TODO add your handling code here:
+        
+        if (evt.isMetaDown()) {
+            int row = jt_arbolEscuadrones.getClosestRowForLocation(
+                    evt.getX(), evt.getY());
+            jt_arbolEscuadrones.setSelectionRow(row);
+            Object v1
+                    = jt_arbolEscuadrones.getSelectionPath().
+                            getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if (nodo_seleccionado.getUserObject() instanceof Superheroe) {
+                
+                super_seleccionado = (Superheroe) nodo_seleccionado.
+                                getUserObject();
+                
+                popup_menu.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            } else if (nodo_seleccionado.getUserObject() instanceof Villano) {
+                super_seleccionado = (Villano) nodo_seleccionado.
+                                getUserObject();
+                
+                popup_menu.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            } else {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jt_arbolEscuadronesMouseClicked
+
+    private void jmi_liderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_liderActionPerformed
+        
+        Escuadron escuadron;
+        
+    }//GEN-LAST:event_jmi_liderActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1880,6 +1956,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1923,6 +2000,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> jl_listaHeroes;
     private javax.swing.JList<String> jl_listaVillanos;
     private javax.swing.JList<String> jl_listaescuadrones3;
+    private javax.swing.JMenuItem jmi_lider;
     private javax.swing.JSpinner js_agilidadFisicaHeroe;
     private javax.swing.JSpinner js_agilidadFisicaHeroeMod;
     private javax.swing.JSpinner js_agilidadFisicaVillano;
@@ -1938,6 +2016,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTree jt_arbolEscuadrones;
     private javax.swing.JTabbedPane jtb_menuHeroe;
     private javax.swing.JTabbedPane jtp_menuEscuadron;
+    private javax.swing.JPopupMenu popup_menu;
     private javax.swing.JRadioButton rb_superheroe;
     private javax.swing.JRadioButton rb_superheroeMod;
     private javax.swing.JRadioButton rb_villanos;
@@ -1968,6 +2047,8 @@ public class Main extends javax.swing.JFrame {
     Escuadron esc_1 = null;
     Escuadron esc_2 = null;
 
+    DefaultMutableTreeNode nodo_seleccionado;
+    Super super_seleccionado;
     int pos_esc1;
     int pos_esc2;
 
@@ -1975,7 +2056,7 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel model = new DefaultListModel();
 
         for (Superheroe h : lista_heroes) {
-            model.addElement(h);
+            model.addElement(h.getNombre() +"," + h.getPoder());
         }
         jl_listaHeroes.setModel(model);
     }
@@ -1984,7 +2065,7 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel model = new DefaultListModel();
 
         for (Villano v : lista_villanos) {
-            model.addElement(v);
+            model.addElement(v.getNombre() + "," + v.getDebilidad());
         }
         jl_listaVillanos.setModel(model);
     }

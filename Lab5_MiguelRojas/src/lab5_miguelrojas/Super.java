@@ -92,7 +92,7 @@ public class Super {
 
     @Override
     public String toString() {
-        return "Super{" + "nombre=" + nombre + ", poder=" + poder + ", debilidad=" + debilidad + ", escuadron=" + escuadron + ", fuerza=" + fuerza + ", agilidad_fisica=" + agilidad_fisica + ", agilidad_mental=" + agilidad_mental + '}';
+        return "";
     }
     
     
