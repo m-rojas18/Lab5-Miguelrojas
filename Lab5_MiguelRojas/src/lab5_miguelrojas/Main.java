@@ -7,6 +7,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeNode;
 
 public class Main extends javax.swing.JFrame {
 
@@ -1058,7 +1059,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1089,7 +1090,9 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 172, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1724,12 +1727,12 @@ public class Main extends javax.swing.JFrame {
         }
 
         if (esc_1.getLider() == null) {
-            JOptionPane.showMessageDialog(jd_menuEscuadrones, "El Escuadron seleccionado no tiene lider");
+            JOptionPane.showMessageDialog(jd_menuEscuadrones, "El Escuadron seleccionado (1)no tiene lider");
             seguir = false;
         }
 
         if (esc_2.getLider() == null) {
-            JOptionPane.showMessageDialog(jd_menuEscuadrones, "El Escuadron seleccionado no tiene lider");
+            JOptionPane.showMessageDialog(jd_menuEscuadrones, "El Escuadron seleccionado (2) no tiene lider");
             seguir = false;
         }
 
@@ -1854,11 +1857,13 @@ public class Main extends javax.swing.JFrame {
             int row = jt_arbolEscuadrones.getClosestRowForLocation(
                     evt.getX(), evt.getY());
             jt_arbolEscuadrones.setSelectionRow(row);
-            pos_nodo = row;
+            pos_nodo = row - 2;
             Object v1
                     = jt_arbolEscuadrones.getSelectionPath().
                             getLastPathComponent();
             nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            
+            
             if (nodo_seleccionado.getUserObject() instanceof Superheroe) {
                 
                 super_seleccionado = (Superheroe) nodo_seleccionado.
@@ -1879,6 +1884,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jt_arbolEscuadronesMouseClicked
 
     private void jmi_liderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_liderActionPerformed
+        
+        
+        
+        
         
         Escuadron escuadron = lista_escuadrones.get(pos_nodo);
         
