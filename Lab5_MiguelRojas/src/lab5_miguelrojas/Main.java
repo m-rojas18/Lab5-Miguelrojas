@@ -1476,6 +1476,8 @@ public class Main extends javax.swing.JFrame {
 
     private void jb_agregarMiembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarMiembroMouseClicked
 
+        int cont1 =0;
+        int cont2 = 0;
         String salida_heroes = salidaHeroes(), salida_villanos = salidaVillanos();
         if (jl_listaEscuadrones2.getSelectedIndex() >= 0) {
             Escuadron esc = lista_escuadrones.get(jl_listaEscuadrones2.getSelectedIndex());
@@ -1521,7 +1523,11 @@ public class Main extends javax.swing.JFrame {
                     nodo_miembro.add(nodo_miembro2);
                     nodo.add(nodo_miembro);
                     m.reload();
-
+                    
+                    if (cont1 ==0) {
+                        esc.setLider(heroe_elegido);
+                    }
+                    cont1++;
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se agrego el miembro exitosamente!!");
                 }
 
@@ -1565,6 +1571,11 @@ public class Main extends javax.swing.JFrame {
                     m.reload();
                     JOptionPane.showMessageDialog(jd_menuEscuadrones, "Se agrego el miembro exitosamente!!");
 
+                    
+                    if (cont2 == 0) {
+                        esc.setLider(v_elegido);
+                    }
+                    cont2++;
                 }
 
             }
